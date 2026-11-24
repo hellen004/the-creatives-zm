@@ -1,6 +1,7 @@
 "use client";
 
-import { Camera, MapPin, MessageCircle, Phone, Smartphone } from "lucide-react";
+import Image from "next/image";
+import { MapPin, MessageCircle, Phone, Smartphone } from "lucide-react";
 import { BRAND, PAYMENT_ACCOUNTS } from "@/lib/data";
 import { useBooking } from "./booking-context";
 import { buttonStyles, cn } from "./ui";
@@ -43,9 +44,7 @@ export function Contact() {
         <div className="mt-16 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <p className="flex items-center gap-2.5 font-serif text-2xl">
-              <span className="grid size-9 place-items-center rounded-full bg-white/10">
-                <Camera className="size-4" aria-hidden />
-              </span>
+              <Image src="/images/logo.jpg" alt="" width={44} height={44} className="size-11 rounded-xl ring-1 ring-white/20" />
               The Creatives <span className="italic text-gold-400">zm</span>
             </p>
             <p className="mt-4 text-sm tracking-widest text-gold-300">{BRAND.pillars.toUpperCase()}</p>

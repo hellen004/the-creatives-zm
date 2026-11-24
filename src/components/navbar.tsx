@@ -1,21 +1,26 @@
 "use client";
 
-import { Camera, Menu, Phone, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { BRAND } from "@/lib/data";
 import { useBooking } from "./booking-context";
 import { buttonStyles, cn } from "./ui";
 
 const LINKS = [
-  { href: "#about", label: "About Us" },
-  { href: "#services", label: "Services" },
-  { href: "#portfolio", label: "Portfolio" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#contact", label: "Contact Us" },
+  { href: "/#about", label: "About Us" },
+  { href: "/#services", label: "Services" },
+  { href: "/#portfolio", label: "Portfolio" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/#pricing", label: "Pricing" },
+  { href: "#contact", label: "Contact Us" }, // the contact footer is on every page
 ];
 
 export function Navbar() {
   const { openBooking } = useBooking();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -47,32 +52,37 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-8">
-        <a href="#top" className="group flex items-center gap-2.5" aria-label={`${BRAND.name} — home`}>
-          <span
+        <Link href="/" className="group flex items-center gap-2.5" aria-label={`${BRAND.name} — home`}>
+          <Image
+            src="/images/logo.jpg"
+            alt=""
+            width={40}
+            height={40}
+            preload
             className={cn(
-              "grid size-9 place-items-center rounded-full border transition-colors",
-              solid ? "border-plum-200 bg-plum-600 text-white" : "border-white/40 bg-white/10 text-white",
+              "size-9 rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105 lg:size-10",
+              !solid && "ring-1 ring-white/30",
             )}
-          >
-            <Camera className="size-4" aria-hidden />
-          </span>
+          />
           <span className={cn("whitespace-nowrap font-serif text-xl tracking-wide transition-colors", solid ? "text-plum-700" : "text-white")}>
             The Creatives <span className="italic text-gold-500">zm</span>
           </span>
-        </a>
+        </Link>
 
-        <ul className="hidden items-center gap-8 lg:flex">
+        <ul className="hidden items-center gap-7 lg:flex">
           {LINKS.map((l) => (
             <li key={l.href}>
-              <a
+              <Link
                 href={l.href}
+                aria-current={pathname === l.href ? "page" : undefined}
                 className={cn(
-                  "relative text-sm font-medium transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold-500 after:transition-all hover:after:w-full",
+                  "relative text-sm font-medium transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-gold-500 after:transition-all hover:after:w-full",
+                  pathname === l.href ? "after:w-full" : "after:w-0",
                   solid ? "text-gray-700 hover:text-plum-700" : "text-white/90 hover:text-white",
                 )}
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -118,13 +128,17 @@ export function Navbar() {
         <ul className="flex flex-col gap-1 p-4">
           {LINKS.map((l) => (
             <li key={l.href}>
-              <a
+              <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-xl px-4 py-3 font-serif text-lg text-charcoal transition-colors hover:bg-plum-50 hover:text-plum-700"
+                aria-current={pathname === l.href ? "page" : undefined}
+                className={cn(
+                  "block rounded-xl px-4 py-3 font-serif text-lg transition-colors hover:bg-plum-50 hover:text-plum-700",
+                  pathname === l.href ? "bg-plum-50 text-plum-700" : "text-charcoal",
+                )}
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
