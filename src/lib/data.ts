@@ -12,8 +12,25 @@ export const BRAND = {
 } as const;
 
 export const PAYMENT_ACCOUNTS = [
-  { id: "airtel", provider: "Airtel Money", number: "+260 975 939 390", name: "Joseph Lungu" },
-  { id: "mtn", provider: "MTN Mobile Money", number: "+260 763 765 443", name: "Joseph Lungu" },
+  {
+    id: "airtel",
+    provider: "Airtel Money",
+    numberLabel: "Agent code",
+    number: "20390170",
+    /** How the number reads inside a sentence (WhatsApp, email, calendar). */
+    inline: "agent code 20390170",
+    howTo: "Pay with Airtel Money “Withdraw” using agent code 20390170.",
+    name: "Joseph Lungu",
+  },
+  {
+    id: "mtn",
+    provider: "MTN Mobile Money",
+    numberLabel: "Number",
+    number: "+260 763 765 443",
+    inline: "+260 763 765 443",
+    howTo: "Send to +260 763 765 443.",
+    name: "Joseph Lungu",
+  },
 ] as const;
 
 export type PaymentMethodId = (typeof PAYMENT_ACCOUNTS)[number]["id"];
@@ -48,6 +65,8 @@ export interface Service {
   title: string;
   subtitle?: string;
   image: string;
+  /** CSS object-position for the card crop (portrait photos in a wide card). */
+  imagePosition?: string;
   coverage: string[];
   deliverables: string[];
   /** Flat package price (fixed packages). */
@@ -74,7 +93,8 @@ export const SERVICES: Service[] = [
     category: "weddings",
     title: "Weddings Coverage",
     subtitle: "Your full wedding day, beautifully told",
-    image: "/images/wedding-couple.jpg",
+    image: "/images/wedding-veil-pearls.jpg",
+    imagePosition: "50% 22%",
     coverage: ["Bride & Groom preparations", "Church services", "Photo session", "Reception"],
     deliverables: ["150 soft copy photos", "Hard copy photo magazine"],
     price: 5000,
@@ -86,7 +106,8 @@ export const SERVICES: Service[] = [
     category: "traditional",
     title: "Traditional & Event Coverage",
     subtitle: "Chilanga Mulilo · Kitchen Party · Bridal Shower · Marriage Blessing",
-    image: "/images/traditional-pot.jpg",
+    image: "/images/bridal-shower-sofa.jpg",
+    imagePosition: "45% 30%",
     coverage: ["Bride preparations", "Photo session", "Groom's side (Chilanga Mulilo)"],
     deliverables: ["70 soft copy photos", "1 canvas print out"],
     price: 3500,
@@ -99,7 +120,8 @@ export const SERVICES: Service[] = [
     category: "shoots",
     title: "Birthday / Outdoor / Ordinary Shoot",
     subtitle: "Birthdays, lifestyle, couples & outdoor portraits",
-    image: "/images/birthday.jpg",
+    image: "/images/engagement-ring-closeup.jpg",
+    imagePosition: "50% 30%",
     coverage: ["On-location photo session", "Professional editing"],
     deliverables: ["Edited soft copy photos per tier"],
     tiers: hourlyTiers(700, 900, 1500),
@@ -111,7 +133,8 @@ export const SERVICES: Service[] = [
     category: "shoots",
     title: "Graduation Shoot / Coverage",
     subtitle: "Celebrate the milestone in style",
-    image: "/images/graduate-gown.jpg",
+    image: "/images/graduate-class-2026.jpg",
+    imagePosition: "50% 4%",
     coverage: ["Family photo session", "Graduate's individual photo session"],
     deliverables: ["Edited soft copy photos per tier"],
     tiers: hourlyTiers(700, 900, 1500),
@@ -122,13 +145,14 @@ export const SERVICES: Service[] = [
     id: "studio",
     category: "studio",
     title: "Studio Photo Shoot",
-    subtitle: "Mobile studio — we bring the studio to you",
-    image: "/images/studio-couple.jpg",
-    coverage: ["Mobile studio set-up at your location", "Studio lighting & backdrop"],
+    subtitle: "Relaxed studio sessions — your music, your vibe",
+    image: "/images/graduate-unza-suit.jpg",
+    imagePosition: "50% 6%",
+    coverage: ["Free Wi-Fi", "Complimentary drinks", "Music of your choice"],
     deliverables: ["Edited soft copy photos per tier"],
     tiers: hourlyTiers(750, 950, 1550),
     hourly: true,
-    note: "We're currently only offering mobile studio services — we follow the client to their location. Photo shoot is strictly per hour.",
+    note: "Photo shoot is strictly per hour.",
   },
 ];
 
@@ -208,11 +232,18 @@ export const PORTFOLIO_FILTERS: { id: "all" | PortfolioCategory; label: string }
 /** Every photo on the site, grouped by shoot type. Add new photos here (files go in /public/images). */
 export const PHOTOS: Photo[] = [
   // Weddings
+  { src: "/images/wedding-embrace.jpg", alt: "Groom in a white tuxedo kissing his bride's forehead", category: "weddings", w: 720, h: 1080 },
+  { src: "/images/wedding-veil-pearls.jpg", alt: "Groom lifting his bride's pearl-studded veil", category: "weddings", w: 772, h: 1080 },
+  { src: "/images/wedding-bride-bouquet.jpg", alt: "Bride in a sheer robe holding calla lilies during preparations", category: "weddings", w: 772, h: 1080 },
+  { src: "/images/wedding-tiara-bride.jpg", alt: "Bride in a tiara and veil with her groom at an outdoor ceremony", category: "weddings", w: 772, h: 1080 },
+  { src: "/images/wedding-veil-outdoor.jpg", alt: "Groom lifting the veil at an outdoor wedding ceremony", category: "weddings", w: 772, h: 1080 },
   { src: "/images/wedding-couple.jpg", alt: "Bride with bouquet and groom in a garden", category: "weddings", w: 1080, h: 1350 },
   { src: "/images/wedding-kiss.jpg", alt: "Groom kissing the bride's hand", category: "weddings", w: 1400, h: 931 },
   { src: "/images/wedding-bride-car.jpg", alt: "Bride seated in the wedding car", category: "weddings", w: 933, h: 1400 },
   { src: "/images/wedding-prep.jpg", alt: "Bride's hair and make-up preparations", category: "weddings", w: 1400, h: 931 },
   // Engagements & couples
+  { src: "/images/engagement-ring-closeup.jpg", alt: "Couple face to face as she shows her engagement ring", category: "engagement", w: 772, h: 1080 },
+  { src: "/images/engagement-ring-arm.jpg", alt: "Engagement ring on a hand resting on her partner's arm", category: "engagement", w: 772, h: 1080 },
   { src: "/images/engagement-couple.jpg", alt: "Engaged couple embracing beside an art-filled wall", category: "engagement", w: 864, h: 1080 },
   { src: "/images/engagement-ring-kiss.jpg", alt: "Fiancé kissing his partner's hand to show the engagement ring", category: "engagement", w: 772, h: 1080 },
   { src: "/images/engagement-stairs.jpg", alt: "Couple resting together on a rustic wooden staircase", category: "engagement", w: 864, h: 1080 },
@@ -228,14 +259,17 @@ export const PHOTOS: Photo[] = [
   { src: "/images/traditional-pot.jpg", alt: "Bride-to-be at a traditional cooking ceremony", category: "traditional", w: 931, h: 1400 },
   { src: "/images/traditional-celebration.jpg", alt: "Guests celebrating at a kitchen party", category: "traditional", w: 1080, h: 718 },
   // Graduations
+  { src: "/images/graduate-class-2026.jpg", alt: "Graduate in a cap with a 2026 tassel holding her gown", category: "graduation", w: 772, h: 1080 },
+  { src: "/images/graduate-unza-suit.jpg", alt: "Smiling graduate in a suit holding his University of Zambia gown", category: "graduation", w: 772, h: 1080 },
+  { src: "/images/graduate-unza-portrait.jpg", alt: "Graduate portrait with a University of Zambia gown", category: "graduation", w: 864, h: 1080 },
   { src: "/images/graduate-smile.jpg", alt: "Smiling graduate wearing her academic sash", category: "graduation", w: 677, h: 1016 },
   { src: "/images/graduate-portrait.jpg", alt: "Graduate portrait at a heritage doorway", category: "graduation", w: 1080, h: 1350 },
   { src: "/images/graduate-gown.jpg", alt: "Graduate holding her mortarboard on campus", category: "graduation", w: 933, h: 1400 },
   // Birthdays & outdoor shoots
   { src: "/images/birthday.jpg", alt: "Toddler at a themed birthday celebration", category: "shoots", w: 933, h: 1400 },
   { src: "/images/outdoor-portrait.jpg", alt: "Outdoor lifestyle portrait in natural light", category: "shoots", w: 714, h: 1071 },
-  // Mobile studio
-  { src: "/images/studio-couple-play.jpg", alt: "Playful couple portrait in the mobile studio", category: "studio", w: 1080, h: 1350 },
+  // Studio
+  { src: "/images/studio-couple-play.jpg", alt: "Playful couple portrait in the studio", category: "studio", w: 1080, h: 1350 },
   { src: "/images/studio-rose.jpg", alt: "Studio portrait of a woman holding a red rose", category: "studio", w: 660, h: 989 },
   { src: "/images/studio-graduate.jpg", alt: "Graduate in gown and cap in the studio", category: "studio", w: 933, h: 1400 },
   { src: "/images/studio-couple.jpg", alt: "Couple seated back to back in the studio", category: "studio", w: 1080, h: 1350 },
@@ -243,10 +277,10 @@ export const PHOTOS: Photo[] = [
 
 /** Curated mix for the home page; the full set lives on /gallery. */
 const FEATURED = [
-  "wedding-couple", "engagement-couple", "traditional-cooking", "graduate-smile", "studio-couple-play",
-  "bridal-shower-gown", "wedding-kiss", "birthday", "engagement-ring-kiss", "wedding-bride-car",
-  "studio-rose", "traditional-celebration", "graduate-portrait", "engagement-stairs", "studio-graduate",
-  "outdoor-portrait", "bridal-shower-sofa-smile",
+  "wedding-embrace", "engagement-couple", "graduate-class-2026", "studio-couple-play", "bridal-shower-gown",
+  "wedding-veil-pearls", "engagement-ring-closeup", "traditional-cooking", "wedding-bride-bouquet", "graduate-unza-suit",
+  "studio-rose", "wedding-couple", "engagement-ring-kiss", "traditional-celebration", "graduate-smile",
+  "birthday", "wedding-tiara-bride", "engagement-stairs", "studio-graduate", "outdoor-portrait",
 ];
 export const PORTFOLIO: Photo[] = FEATURED.map((name) => PHOTOS.find((p) => p.src === `/images/${name}.jpg`)!);
 
@@ -297,8 +331,8 @@ export const GALLERY_SECTIONS: GallerySection[] = [
   },
   {
     id: "studio",
-    title: "Mobile Studio",
-    blurb: "Studio lighting and backdrops, set up wherever you are.",
+    title: "Studio Portraits",
+    blurb: "Professional lighting and backdrops in a relaxed studio — with free Wi-Fi, complimentary drinks and music of your choice.",
     serviceId: "studio",
     bookLabel: "Book a studio shoot",
   },

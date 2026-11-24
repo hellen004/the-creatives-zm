@@ -102,7 +102,7 @@ export function PackageOptions({
                     "relative rounded-2xl border px-2 py-3 text-center transition-all",
                     active
                       ? t.id === "gold"
-                        ? "border-gold-500 bg-gold-200/40 ring-2 ring-gold-500/30"
+                        ? "border-charcoal bg-plum-50 ring-2 ring-charcoal/15"
                         : "border-plum-600 bg-plum-50 ring-2 ring-plum-600/20"
                       : "border-gray-200 bg-white hover:border-plum-300",
                   )}

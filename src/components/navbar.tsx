@@ -65,7 +65,7 @@ export function Navbar() {
             )}
           />
           <span className={cn("whitespace-nowrap font-serif text-xl tracking-wide transition-colors", solid ? "text-plum-700" : "text-white")}>
-            The Creatives <span className="italic text-gold-500">zm</span>
+            The Creatives <span className={cn("italic", solid ? "text-plum-500" : "text-plum-200")}>zm</span>
           </span>
         </Link>
 
@@ -76,9 +76,9 @@ export function Navbar() {
                 href={l.href}
                 aria-current={pathname === l.href ? "page" : undefined}
                 className={cn(
-                  "relative text-sm font-medium transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-gold-500 after:transition-all hover:after:w-full",
+                  "relative text-sm font-medium transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:transition-all hover:after:w-full",
                   pathname === l.href ? "after:w-full" : "after:w-0",
-                  solid ? "text-gray-700 hover:text-plum-700" : "text-white/90 hover:text-white",
+                  solid ? "text-gray-700 after:bg-plum-600 hover:text-plum-700" : "text-white/90 after:bg-white hover:text-white",
                 )}
               >
                 {l.label}

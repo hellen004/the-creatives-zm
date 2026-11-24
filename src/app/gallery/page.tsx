@@ -7,7 +7,7 @@ import { Navbar } from "@/components/navbar";
 export const metadata: Metadata = {
   title: "Gallery — The Creatives zm",
   description:
-    "Wedding, engagement, bridal shower, traditional ceremony, graduation, birthday and mobile studio photography by The Creatives zm in Lusaka, Zambia.",
+    "Wedding, engagement, bridal shower, traditional ceremony, graduation, birthday and studio photography by The Creatives zm in Lusaka, Zambia.",
 };
 
 export default function GalleryPage() {

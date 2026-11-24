@@ -1,30 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-plum-50: #faf5fb;
-  --color-plum-100: #f3e7f5;
-  --color-plum-200: #e5cdea;
-  --color-plum-300: #cda4d5;
-  --color-plum-400: #a86db4;
-  --color-plum-500: #7c3a8b;
-  --color-plum-600: #5b1d68;
-  --color-plum-700: #4a154b;
-  --color-plum-800: #381039;
-  --color-plum-900: #260a28;
-  --color-plum-950: #170518;
+  /* Brand palette: purple (from the logo), white and black. */
+  --color-plum-50: #f9f3fa;
+  --color-plum-100: #f1e4f3;
+  --color-plum-200: #e2c6e7;
+  --color-plum-300: #c99ad2;
+  --color-plum-400: #a65fb3;
+  --color-plum-500: #7e2a8c;
+  --color-plum-600: #581268; /* logo purple */
+  --color-plum-700: #470e55;
+  --color-plum-800: #360a41;
+  --color-plum-900: #23062b;
+  --color-plum-950: #13031a;
+  --color-magenta: #890e68; /* logo gradient accent */
 
-  --color-gold-200: #f1e2b3;
-  --color-gold-300: #e7cf80;
-  --color-gold-400: #ddbf58;
-  --color-gold-500: #d4af37;
-  --color-gold-600: #b08f24;
-  --color-gold-700: #86691b;
+  --color-cream: #f8f8f9;
+  --color-charcoal: #0d0d0f; /* brand black */
 
-  --color-cream: #f8f9fa;
-  --color-charcoal: #1f2937;
-
-  --font-serif: var(--font-playfair), "Georgia", serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Metropolis everywhere; `font-serif` is kept as the "display" utility for headings. */
+  --font-serif: var(--font-metropolis), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-metropolis), ui-sans-serif, system-ui, sans-serif;
 
   --animate-fade-up: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-fade-in: fade-in 0.25s ease-out both;
@@ -53,6 +49,15 @@ body {
   background: var(--color-cream);
   color: var(--color-charcoal);
   font-family: var(--font-sans);
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
 }
 
 ::selection {

@@ -39,14 +39,14 @@ export function Calculator() {
             <div className="relative overflow-hidden rounded-3xl bg-plum-700 p-6 text-white shadow-2xl shadow-plum-900/30 sm:p-8">
               <div
                 aria-hidden
-                className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-gold-500/20 blur-2xl"
+                className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-magenta/40 blur-2xl"
               />
               <div className="relative" aria-live="polite">
                 <QuoteSummary quote={q} dark />
               </div>
               <button
                 onClick={() => openBooking(calculator)}
-                className={cn(buttonStyles.gold, "relative mt-6 w-full")}
+                className={cn(buttonStyles.light, "relative mt-6 w-full")}
               >
                 <CalendarCheck className="size-4" aria-hidden /> Book this package
               </button>

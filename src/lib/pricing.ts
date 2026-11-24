@@ -208,7 +208,7 @@ export function buildWhatsAppMessage(ref: string, d: BookingDetails, q: Quote, c
     ``,
     `💰 *Total:* ${formatZMK(q.total)}`,
     `✅ *50% Deposit (non-refundable):* ${formatZMK(q.deposit)}`,
-    `💳 *Paying via:* ${account.provider} (${account.number} — ${account.name})`,
+    `💳 *Paying via:* ${account.provider} (${account.inline} — ${account.name})`,
     ...(q.freeCanvas ? [`🎉 Free canvas print included!`] : []),
     ...(d.notes.trim() ? [``, `📝 *Notes:* ${d.notes.trim()}`] : []),
     ...(calendarUrl ? [``, `🗓️ *Add to calendar:* ${calendarUrl}`] : []),

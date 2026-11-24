@@ -15,19 +15,19 @@ export function Contact() {
         aria-hidden
         className="pointer-events-none absolute -left-32 top-0 size-96 rounded-full bg-plum-500/30 blur-3xl"
       />
-      <div aria-hidden className="pointer-events-none absolute -right-24 bottom-0 size-80 rounded-full bg-gold-500/10 blur-3xl" />
+      <div aria-hidden className="pointer-events-none absolute -right-24 bottom-0 size-80 rounded-full bg-magenta/25 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur sm:p-10 lg:flex-row lg:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-300">Contact Us</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-plum-200">Contact Us</p>
             <h2 className="mt-3 font-serif text-3xl leading-tight sm:text-4xl">Let&apos;s create something timeless.</h2>
             <p className="mt-3 max-w-lg text-plum-100">
               Slots fill quickly, especially on weekends and graduation season. Reserve yours with a 50% deposit.
             </p>
           </div>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <button onClick={() => openBooking()} className={buttonStyles.gold}>
+            <button onClick={() => openBooking()} className={buttonStyles.light}>
               Book Now
             </button>
             <a
@@ -45,20 +45,17 @@ export function Contact() {
           <div className="lg:col-span-1">
             <p className="flex items-center gap-2.5 font-serif text-2xl">
               <Image src="/images/logo.jpg" alt="" width={44} height={44} className="size-11 rounded-xl ring-1 ring-white/20" />
-              The Creatives <span className="italic text-gold-400">zm</span>
+              The Creatives <span className="italic text-plum-300">zm</span>
             </p>
-            <p className="mt-4 text-sm tracking-widest text-gold-300">{BRAND.pillars.toUpperCase()}</p>
+            <p className="mt-4 text-sm tracking-widest text-white">{BRAND.pillars.toUpperCase()}</p>
             <p className="mt-2 text-sm italic text-plum-100">&ldquo;{BRAND.tagline}&rdquo;</p>
           </div>
 
           <div>
             <h3 className="text-xs font-semibold uppercase tracking-widest text-plum-200">Visit</h3>
             <p className="mt-4 flex items-start gap-2.5 text-sm text-white/90">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-gold-400" aria-hidden />
+              <MapPin className="mt-0.5 size-4 shrink-0 text-plum-300" aria-hidden />
               {BRAND.location}
-            </p>
-            <p className="mt-3 text-xs text-plum-200">
-              Mobile studio — we come to your location. Client provides transport to and from the shoot.
             </p>
           </div>
 
@@ -66,17 +63,17 @@ export function Contact() {
             <h3 className="text-xs font-semibold uppercase tracking-widest text-plum-200">Calls & Bookings</h3>
             <a
               href={`tel:${BRAND.phoneE164}`}
-              className="mt-4 flex items-center gap-2.5 text-sm text-white/90 transition-colors hover:text-gold-300"
+              className="mt-4 flex items-center gap-2.5 text-sm text-white/90 transition-colors hover:text-plum-200"
             >
-              <Phone className="size-4 text-gold-400" aria-hidden /> {BRAND.phoneDisplay}
+              <Phone className="size-4 text-plum-300" aria-hidden /> {BRAND.phoneDisplay}
             </a>
             <a
               href={`https://wa.me/${BRAND.whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 flex items-center gap-2.5 text-sm text-white/90 transition-colors hover:text-gold-300"
+              className="mt-3 flex items-center gap-2.5 text-sm text-white/90 transition-colors hover:text-plum-200"
             >
-              <MessageCircle className="size-4 text-gold-400" aria-hidden /> WhatsApp {BRAND.phoneDisplay}
+              <MessageCircle className="size-4 text-plum-300" aria-hidden /> WhatsApp {BRAND.phoneDisplay}
             </a>
           </div>
 
@@ -86,14 +83,17 @@ export function Contact() {
               {PAYMENT_ACCOUNTS.map((a) => (
                 <li key={a.id} className="rounded-2xl border border-white/10 bg-white/5 p-3.5">
                   <p className="flex items-center gap-2 text-sm font-semibold">
-                    <Smartphone className="size-4 text-gold-400" aria-hidden />
+                    <Smartphone className="size-4 text-plum-300" aria-hidden />
                     {a.provider}
                     <span
                       className={cn("ml-auto size-2 rounded-full", a.id === "airtel" ? "bg-red-500" : "bg-yellow-400")}
                       aria-hidden
                     />
                   </p>
-                  <p className="mt-1 font-mono text-sm text-gold-200">{a.number}</p>
+                  <p className="mt-1 text-sm text-white">
+                    <span className="text-xs text-plum-200">{a.numberLabel}: </span>
+                    <span className="font-mono">{a.number}</span>
+                  </p>
                   <p className="text-xs text-plum-200">Name: {a.name}</p>
                 </li>
               ))}

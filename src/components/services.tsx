@@ -49,7 +49,8 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
           alt=""
           fill
           sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 100vw"
-          className="object-cover object-[50%_30%] transition-transform duration-700 group-hover:scale-105"
+          style={{ objectPosition: service.imagePosition ?? "50% 30%" }}
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-plum-950/80 via-plum-950/10 to-transparent" />
         {service.hourly && (
@@ -58,7 +59,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
           </span>
         )}
         {service.price !== undefined && (
-          <span className="absolute right-4 top-4 rounded-full bg-gold-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-plum-950">
+          <span className="absolute right-4 top-4 rounded-full bg-charcoal px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
             Full package
           </span>
         )}
@@ -85,7 +86,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
                   key={t.id}
                   className={cn(
                     "flex items-center justify-between gap-3 rounded-2xl border px-4 py-3 transition-colors",
-                    t.id === "gold" ? "border-gold-400/70 bg-gold-200/30" : "border-gray-100 bg-gray-50/60",
+                    t.id === "gold" ? "border-plum-300 bg-plum-50" : "border-gray-100 bg-gray-50/60",
                   )}
                 >
                   <div className="min-w-0">

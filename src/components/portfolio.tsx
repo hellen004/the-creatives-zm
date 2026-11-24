@@ -12,10 +12,10 @@ export function Portfolio() {
   const items = PORTFOLIO.filter((p) => filter === "all" || p.category === filter);
 
   return (
-    <section id="portfolio" className="bg-plum-950 py-20 sm:py-28">
+    <section id="portfolio" className="bg-charcoal py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading eyebrow="Portfolio" title="Moments we've had the honour to capture" light>
-          Weddings, engagements, bridal showers, graduations and our mobile studio — a glimpse of recent work.
+          Weddings, engagements, bridal showers, graduations and studio portraits — a glimpse of recent work.
         </SectionHeading>
 
         <div className="mt-10">
@@ -25,7 +25,7 @@ export function Portfolio() {
         <PhotoGrid photos={items} keyPrefix={filter} className="mt-10" />
 
         <div className="mt-12 text-center">
-          <Link href={filter === "all" ? "/gallery" : `/gallery#${filter}`} className={buttonStyles.gold}>
+          <Link href={filter === "all" ? "/gallery" : `/gallery#${filter}`} className={buttonStyles.light}>
             View the full gallery ({PHOTOS.length} photos) <ArrowRight className="size-4" aria-hidden />
           </Link>
         </div>

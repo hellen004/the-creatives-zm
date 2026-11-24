@@ -15,7 +15,7 @@ const PILLARS = [
   {
     icon: Truck,
     title: "Elegance",
-    body: "From church aisles to kitchen parties to our mobile studio — we come to you, wherever the story is.",
+    body: "From church aisles and kitchen parties to relaxed sessions in our studio — wherever your story unfolds.",
   },
 ];
 
@@ -43,7 +43,7 @@ export function About() {
             />
           </div>
           <div className="absolute -left-3 top-8 rounded-2xl bg-plum-700 px-5 py-4 text-white shadow-xl sm:-left-6">
-            <p className="font-serif text-3xl leading-none text-gold-400">2026</p>
+            <p className="font-serif text-3xl leading-none text-white">2026</p>
             <p className="mt-1 text-xs uppercase tracking-widest text-plum-100">Price Guide</p>
           </div>
         </div>
@@ -53,7 +53,7 @@ export function About() {
           <h2 className="mt-3 font-serif text-3xl leading-tight text-charcoal sm:text-4xl md:text-5xl">
             Clean work. <span className="italic text-plum-600">Every single time.</span>
           </h2>
-          <div className="mt-5 h-px w-16 bg-gold-500" />
+          <div className="mt-5 h-px w-16 bg-plum-600" />
           <p className="mt-6 text-base leading-relaxed text-gray-600 sm:text-lg">
             The Creatives zm is a Lusaka-based photography team capturing weddings, traditional ceremonies like
             Chilanga Mulilo and kitchen parties, graduations, birthdays and portraits. Our promise is simple:{" "}

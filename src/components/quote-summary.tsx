@@ -29,7 +29,7 @@ export function QuoteSummary({ quote: q, dark = false }: { quote: Quote; dark?: 
           <Row key={a.id} label={a.label} value={`+ ${formatZMK(a.price)}`} muted={muted} strong={strong} />
         ))}
         {q.freeCanvas && !q.service.includesCanvas && (
-          <Row label="Canvas print" value="FREE" muted={muted} strong={dark ? "text-gold-300" : "text-gold-700"} />
+          <Row label="Canvas print" value="FREE" muted={muted} strong={dark ? "text-white" : "text-plum-700"} />
         )}
       </dl>
 
@@ -43,14 +43,14 @@ export function QuoteSummary({ quote: q, dark = false }: { quote: Quote; dark?: 
       <div
         className={cn(
           "mt-4 rounded-2xl border p-4",
-          dark ? "border-gold-500/40 bg-gold-500/10" : "border-plum-100 bg-plum-50",
+          dark ? "border-white/20 bg-white/10" : "border-plum-100 bg-plum-50",
         )}
       >
         <div className="flex items-center justify-between gap-3">
-          <span className={cn("text-sm font-semibold", dark ? "text-gold-300" : "text-plum-700")}>
+          <span className={cn("text-sm font-semibold", dark ? "text-white" : "text-plum-700")}>
             50% deposit due now
           </span>
-          <span className={cn("font-serif text-xl font-semibold", dark ? "text-gold-300" : "text-plum-700")}>
+          <span className={cn("font-serif text-xl font-semibold", dark ? "text-white" : "text-plum-700")}>
             {formatZMK(q.deposit)}
           </span>
         </div>

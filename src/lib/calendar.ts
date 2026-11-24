@@ -53,7 +53,7 @@ export function bookingEvent(ref: string, d: BookingDetails, q: Quote): Calendar
     `When: ${formatEventDate(d.date, d.time)} (${hours} hr${hours > 1 ? "s" : ""})`,
     ...(q.addOns.length ? [`Add-ons: ${q.addOns.map((a) => a.label).join(", ")}`] : []),
     `Balance on the day: ${formatZMK(q.balance)}`,
-    `Deposit via: ${account.provider} (${account.number})`,
+    `Deposit via: ${account.provider} (${account.inline}, ${account.name})`,
     ...(q.freeCanvas ? ["Free canvas print included"] : []),
     ...(d.notes.trim() ? ["", `Notes: ${d.notes.trim()}`] : []),
     "",

@@ -116,18 +116,18 @@ function renderHtml(ref: string, d: BookingDetails, q: Quote, gcal: string) {
   return `<!doctype html><html><body style="margin:0;background:#f8f9fa;font-family:Arial,Helvetica,sans-serif">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f8f9fa;padding:24px 12px"><tr><td align="center">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #eee">
-  <tr><td style="background:#4a154b;padding:24px 28px">
-    <p style="margin:0;color:#e7cf80;font-size:11px;letter-spacing:3px;text-transform:uppercase">${esc(BRAND.name)}</p>
-    <h1 style="margin:6px 0 0;color:#ffffff;font-family:Georgia,serif;font-size:22px;font-weight:normal">New booking request</h1>
+  <tr><td style="background:#581268;padding:24px 28px">
+    <p style="margin:0;color:#e2c6e7;font-size:11px;letter-spacing:3px;text-transform:uppercase">${esc(BRAND.name)}</p>
+    <h1 style="margin:6px 0 0;color:#ffffff;font-family:Metropolis,Arial,Helvetica,sans-serif;font-size:22px;font-weight:bold">New booking request</h1>
     <p style="margin:6px 0 0;color:#e5cdea;font-size:13px">Ref ${esc(ref)} · awaiting 50% deposit</p>
   </td></tr>
   <tr><td style="padding:24px 28px 8px" align="center">
-    <a href="${esc(gcal)}" style="display:inline-block;background:#5b1d68;color:#ffffff;text-decoration:none;font-weight:bold;font-size:14px;padding:12px 24px;border-radius:999px">📅 Add to Google Calendar</a>
+    <a href="${esc(gcal)}" style="display:inline-block;background:#0d0d0f;color:#ffffff;text-decoration:none;font-weight:bold;font-size:14px;padding:12px 24px;border-radius:999px">📅 Add to Google Calendar</a>
     <p style="margin:10px 0 0;color:#6b7280;font-size:12px">Using Outlook or Apple Calendar? Open the attached <b>${esc(ref)}.ics</b> invite.</p>
   </td></tr>
   <tr><td style="padding:16px 16px 8px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">${tableRows}</table></td></tr>
   <tr><td style="padding:8px 28px 24px">
-    <p style="margin:0;color:#6b7280;font-size:12px;line-height:1.5">Reply to this email to contact the client directly. Confirm the slot once the deposit reaches ${esc(account.provider)} ${esc(account.number)}. Client provides transport to and from the location.</p>
+    <p style="margin:0;color:#6b7280;font-size:12px;line-height:1.5">Reply to this email to contact the client directly. Confirm the slot once the deposit reaches ${esc(account.provider)} (${esc(account.inline)}). Client provides transport to and from the location.</p>
   </td></tr>
 </table></td></tr></table></body></html>`;
 }

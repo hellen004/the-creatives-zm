@@ -342,7 +342,10 @@ export function BookingModal({ initialSelection, onClose }: { initialSelection: 
                             />
                             {a.provider}
                           </span>
-                          <span className="mt-0.5 block font-mono text-sm text-plum-700">{a.number}</span>
+                          <span className="mt-0.5 block text-sm text-plum-700">
+                            <span className="text-xs text-gray-500">{a.numberLabel}: </span>
+                            <span className="font-mono">{a.number}</span>
+                          </span>
                           <span className="block text-xs text-gray-500">Name: {a.name}</span>
                         </span>
                       </label>
@@ -428,7 +431,7 @@ function Success({
         Ref: {refCode}
       </p>
 
-      <div className="mx-auto mt-6 max-w-sm rounded-2xl border border-gold-400/60 bg-gold-200/30 p-5 text-left">
+      <div className="mx-auto mt-6 max-w-sm rounded-2xl border border-plum-200 bg-plum-50 p-5 text-left">
         <p className="flex items-center gap-2 text-sm font-semibold text-plum-800">
           <ShieldCheck className="size-4" aria-hidden /> Next: pay your 50% deposit
         </p>
@@ -438,7 +441,11 @@ function Success({
             <dd className="font-semibold text-charcoal">{formatZMK(deposit)}</dd>
           </div>
           <div className="flex justify-between gap-4">
-            <dt className="text-gray-600">{account.provider}</dt>
+            <dt className="text-gray-600">Pay with</dt>
+            <dd className="font-semibold text-charcoal">{account.provider}</dd>
+          </div>
+          <div className="flex justify-between gap-4">
+            <dt className="text-gray-600">{account.numberLabel}</dt>
             <dd className="font-mono font-semibold text-charcoal">{account.number}</dd>
           </div>
           <div className="flex justify-between gap-4">
@@ -451,7 +458,8 @@ function Success({
           </div>
         </dl>
         <p className="mt-3 text-xs text-gray-600">
-          Your slot is secured once the deposit is received. Share the payment confirmation on WhatsApp.
+          {account.howTo} Your slot is secured once the deposit is received. Share the payment confirmation on
+          WhatsApp.
         </p>
       </div>
 
